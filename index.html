@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+<body>
+  <a href="/">
+      <h2 class="joke">Loading...</h1>
+  </a>
+<script>
+  function main() {
+    return fetch('/api/hcydd')
+          .then(response =>  response.text() )
+          .then(joke => {
+              document.querySelector('.joke').innerText = joke;
+          });
+  }
+  main();
+</script>
+</body>
+</html>

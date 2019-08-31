@@ -7,30 +7,6 @@ import (
 	"time"
 )
 
-const page = `
-<html style="
-	border-color: #e8e6e3;
-	background: #181a1b;
-">
-<body>
-<a href="/" style="color: white;">
-	<div>
-		<h2 style="
-			left: 0;
-			font-family: courier;
-			line-height: 200px;
-			margin-top: -100px;
-			position: absolute;
-			text-align: center;
-			top: 50%%;
-			width: 100%%;
-		">%s</h1>
-	</div>
-</a>
-</body>
-</html>
-`
-
 var answers = []string{
 	"i'm trying to get pregnant",
 	"it interferes with the heroin",
@@ -48,5 +24,5 @@ func init() {
 
 // Handler is the thing that now.sh will run
 func Handler(res http.ResponseWriter, req *http.Request) {
-	fmt.Fprintf(res, page, answers[rand.Intn(len(answers))])
+	fmt.Fprintf(res, answers[rand.Intn(len(answers))])
 }
