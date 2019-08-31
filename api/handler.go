@@ -1,4 +1,4 @@
-package main
+package api
 
 import (
 	"fmt"
@@ -42,10 +42,11 @@ var answers = []string{
 	"i need to keep my blood pure for the Dark Lord",
 }
 
-func main() {
+func init() {
 	rand.Seed(time.Now().Unix())
-	http.HandleFunc("/", func(res http.ResponseWriter, req *http.Request) {
-		fmt.Fprintf(res, page, answers[rand.Intn(len(answers))])
-	})
-	http.ListenAndServe(":80", nil)
+}
+
+// Handler is the thing that now.sh will run
+func Handler(res http.ResponseWriter, req *http.Request) {
+	fmt.Fprintf(res, page, answers[rand.Intn(len(answers))])
 }
